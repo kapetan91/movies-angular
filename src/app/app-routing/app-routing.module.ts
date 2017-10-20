@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from '../layout/layout.component';
 import { MoviesComponent } from '../component/movies/movies.component';
-
+import { SearchComponent } from '../search/search.component'
 const appRoutes: Routes = [
   {
     path: '',
@@ -13,6 +13,10 @@ const appRoutes: Routes = [
   {
     path: 'movies',
     component: MoviesComponent
+  },
+  {
+    path: 'search/:term',
+    component: SearchComponent
   },
 ];
 @NgModule({

@@ -1,0 +1,20 @@
+<form
+	class="form-inline my-2 my-lg-0"
+	#searchForm="ngForm" 
+	(ngSubmit)="search(); searchForm.reset()"
+	>
+
+	<input class="form-control mr-sm-2"
+	type="text" name="searchTerm"
+	placeholder="Search"
+	aria-label="Search" 
+	minlength="3"
+	required
+	[(ngModel)]="searchTerm">
+
+	<button class="btn btn-outline-success my-2 my-sm-"
+	type="submit"
+	[disabled]="!searchForm.valid">
+	Search
+	</button>
+</form>

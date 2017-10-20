@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { MovieService } from './shared/movie.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { SearchComponent } from './search/search.component';
+import { SearchModule } from './shared/search.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchComponent } from './search/search.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    SearchModule
   ],
   providers: [
     MovieService
