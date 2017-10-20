@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../model/movie.model';
 
 @Component({
@@ -9,13 +9,28 @@ import { Movie } from '../model/movie.model';
 export class MovieRowComponent implements OnInit {
 
 	private movie: Movie;
+  private selected: boolean = false;
+
 
 	@Input() set movieRow(movieFromInput: Movie) {
 		this.movie = movieFromInput;
 	}
+
+  @Output() onSelect = new EventEmitter<Movie>();
+  @Output() onUnselect = new EventEmitter<Movie>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  select(movie: Movie) {
+    this.onSelect.emit(movie);
+    this.selected = true;
+  }
+
+  unselect(movie: Movie) {
+    this.onUnselect.emit(movie);
+    this.selected = false;
+  }
 }

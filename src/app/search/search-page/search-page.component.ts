@@ -36,6 +36,7 @@ export class SearchPageComponent implements OnInit {
 
   unselectMovie(movie) {
   	this.selectedMovies--;
+  	console.log(this.movies);
   }
 
 }

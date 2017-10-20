@@ -3,4 +3,17 @@ Director: {{ movie.director}}<br>
 <img src="{{ movie.imageUrl }}"><br>
 Duration: {{ movie.duration }} minutes<br>
 Release date: {{ movie.releaseDate }}<br>
-Genre: <span *ngFor="let genre of movie.genres">{{ genre }} </span><br><br>
+Genre: <span *ngFor="let genre of movie.genres">{{ genre }} </span><br><br><br>
+
+<button
+	class="btn btn-outline-success"
+	(click)="select(movie)"
+	[disabled]="selected">
+		Select
+</button>
+<button
+	class="btn btn-outline-danger"
+	(click)="unselect(movie)"
+	[disabled]="!selected">
+		Unselect
+</button>
