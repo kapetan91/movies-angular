@@ -16,6 +16,7 @@ import { SearchModule } from './shared/search.module';
     LayoutComponent,
     MoviesComponent,
     SearchComponent,
+    
 
   ],
   imports: [

@@ -1,0 +1,14 @@
+<div class="container">
+	<h4>Search results: {{ term }}</h4>
+	<h4>Selected movies: {{ selectedMovies }}</h4>
+	<br>
+	<ul class="list-group">
+		<li
+			*ngFor="let movie of movies" 
+			[movieRow]="movie" 
+			(onSelect)="selectMovie(movie)" 
+			(onUnselect)="unselectMovie(movie)"
+			class="list-group-item">
+		</li>
+	</ul>
+</div>

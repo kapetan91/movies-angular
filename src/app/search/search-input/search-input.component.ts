@@ -15,8 +15,7 @@ export class SearchInputComponent implements OnInit {
   }
 
   search() {
-  	console.log(this.searchTerm);
-  	this.router.navigate(['search/'+ this.searchTerm]);
+    this.router.navigate(['search/'+ this.searchTerm]);
   }
   
 }
