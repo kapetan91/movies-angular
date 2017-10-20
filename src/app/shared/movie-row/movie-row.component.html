@@ -1,0 +1,6 @@
+Title: {{ movie.name }}<br>
+Director: {{ movie.director}}<br>
+<img src="{{ movie.imageUrl }}"><br>
+Duration: {{ movie.duration }} minutes<br>
+Release date: {{ movie.releaseDate }}<br>
+Genre: <span *ngFor="let genre of movie.genres">{{ genre }} </span><br><br>

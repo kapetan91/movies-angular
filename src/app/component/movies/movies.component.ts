@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../shared/model/movie.model';
 import { MovieService } from '../../shared/movie.service';
+import { MovieRowComponent } from '../../shared/movie-row/movie-row.component';
 
 @Component({
   selector: 'app-movies',

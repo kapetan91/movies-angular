@@ -22,9 +22,8 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  declarations: [
-  MoviesComponent,
-  LayoutComponent
+  exports: [
+  RouterModule
   ]
 })
 export class AppRoutingModule { }
