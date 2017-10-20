@@ -3,16 +3,23 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from '../layout/layout.component';
 import { MoviesComponent } from '../component/movies/movies.component';
+
 const appRoutes: Routes = [
-
-  { path: 'movies', component: MoviesComponet },
-
-]
+  {
+    path: '',
+    redirectTo: '/movies',
+    pathMatch: 'full'
+  },
+  {
+    path: 'movies',
+    component: MoviesComponent
+  },
+];
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forRoot(
-    	appRoutes
+      appRoutes
     )
   ],
   declarations: [
