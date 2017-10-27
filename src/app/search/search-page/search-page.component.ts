@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../shared/movie.service'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../../shared/model/movie.model';
 import { MovieRowComponent } from '../../shared/movie-row/movie-row.component';
 @Component({
@@ -16,7 +16,9 @@ export class SearchPageComponent implements OnInit {
 
   constructor(
   	private movieService: MovieService,
-  	private route: ActivatedRoute) { }
+  	private route: ActivatedRoute,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
   	this.route.params.subscribe(() => {

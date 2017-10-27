@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { Movie } from '../shared/model/movie.model';
+import { AuthService } from  './auth.service';
 
 
 @Injectable()
@@ -16,37 +17,38 @@ export class MovieService {
   getMovies() {
 
     return new Observable(
-      (foundMovies: Observer<any>) => {
-        
-        let movie: Movie = null;
-        for (movie of movies) {
-          this.movies.push(movie)
-        }
+      (o: Observer<any>) => {
+        this.http.get('http://localhost:8000/movies', {
+          headers: this.authService.getRequestHeaders(),
+        })
+        .subscribe(
+          (movies: any[]) => {
+            movies.forEach(c => {
+              this.contacts.push(new Movie(c.id, c.name, c.director, c.image_url, c.duration, c.release_date, c.genres))
+            });
 
-        foundMovies.next(this.movies);
+            o.next(this.movies);
+            return o.complete();
+          })
+        
+        
       }
     );
   }
 
-   searchMovies(term) {
-    return new Observable(
-      (foundMovies: Observer<any>) => {
-        let m = [];
-
-        this.movies.map((movie: Movie) => {
-          if (!(movie['name'].toLowerCase().search(term.toLowerCase()) == -1)) {
-            m.push(movie);
-          }
+   searchMovies(id: number) {
+    return new Observable((o: Observer<any>) => {
+      this.http.get('http://localhost:8000/movies/' + id,
+        {
+          headers: this.authService.getRequestHeaders(),
         })
-
-        if (m.length == 0) {
-          foundMovies.error('No movies found.');
-          console.log('No movies');
-        } else {
-          foundMovies.next(m);          
-        }
-      }
-    );
+        .subscribe(
+          (contact: any) => {
+            o.next(new Movie(movie.id, movie.name, movie.director, movie.image_url, movie.duration, movie.release_date, movie.genres));
+            return o.complete();
+          }
+        );
+    });
   }
 
 }
