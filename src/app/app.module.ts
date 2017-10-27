@@ -9,6 +9,7 @@ import { MovieService } from './shared/movie.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { SearchComponent } from './search/search.component';
 import { SearchModule } from './shared/search.module';
+import { AddMovieComponent } from './component/add-movie/add-movie.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SearchModule } from './shared/search.module';
     LayoutComponent,
     MoviesComponent,
     SearchComponent,
+    AddMovieComponent,
     
 
   ],

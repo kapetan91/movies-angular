@@ -24,7 +24,7 @@ export class MovieService {
         .subscribe(
           (movies: any[]) => {
             movies.forEach(c => {
-              this.contacts.push(new Movie(c.id, c.name, c.director, c.image_url, c.duration, c.release_date, c.genres))
+              this.contacts.push(new Movie(c.id, c.name, c.director, c.image_url, c.duration, c.release_date, c.genres));
             });
 
             o.next(this.movies);
@@ -48,6 +48,30 @@ export class MovieService {
             return o.complete();
           }
         );
+    });
+  }
+
+  addMovie(movie: Movie)
+  {
+    return new Observable((o: Observer<any>) => {
+      this.htpp.post('http://localhost:8000/movies', {
+        'name': movie.name,
+        'director': movie.director,
+        'imageUrl': movie.image_url,
+        'duration': movie.duration,
+        'releaseDate': movie.release_date,
+        'genres': movie.genres,
+      },
+      {
+        headers: this.authService.getRequestHeaders(),
+      })
+      .subscribe(
+        (m: any) => {
+          let newM = new Movie(c.id, c.name, c.director, c.image_url, c.duration, c.release_date, c.genres));
+        this.movie.push(newM);
+        o.next(newM);
+        return o.complete();
+      });
     });
   }
 

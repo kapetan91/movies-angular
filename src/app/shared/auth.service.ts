@@ -9,7 +9,7 @@ export class AuthService {
   public isAuthenticated: boolean;
 
   constructor(private http: HttpClient) {
-  	this.isAuthenticated = !!window.localStorage.getItem('loginToken');
+  	this.isAuthenticated = !!window.localStorage.getItem('movieToken');
   }
 
   // login(email: string, password: string)
@@ -37,13 +37,13 @@ export class AuthService {
 
   public getRequestHeaders()
   {
-  	return new HttpHeaders().set('Authorization', 'Bearer ' + window.localStorage.getItem('loginToken'));
+  	return new HttpHeaders().set('Authorization', 'Bearer ' + window.localStorage.getItem('movieToken'));
   }
 
-  public logout()
-  {
-  	window.localStorage.removeItem('loginToken');
-  	this.isAuthenticated = false;	
-  }
+  // public logout()
+  // {
+  // 	window.localStorage.removeItem('loginToken');
+  // 	this.isAuthenticated = false;	
+  // }
 
 }

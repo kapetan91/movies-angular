@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from '../layout/layout.component';
 import { MoviesComponent } from '../component/movies/movies.component';
 import { SearchPageComponent } from '../search/search-page/search-page.component'
+import { AddMovieComponent } from '../component/add-movie/add-movie.component';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -17,6 +19,10 @@ const appRoutes: Routes = [
   {
     path: 'search/:term',
     component: SearchPageComponent
+  },
+  {
+    path: '/add',
+    component: AddMovieComponent
   },
 ];
 @NgModule({
